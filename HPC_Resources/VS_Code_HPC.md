@@ -1,4 +1,4 @@
-# Using Visual Studio (VS) Code on HPC systems
+ # Using Visual Studio (VS) Code on HPC systems (Cassidy Wagner)
 
 VS Code is an integrated development environment which can be used to develop or edit code, and to run/debug the code. As part of this functionality, it can also be used to access, and run code on, HPC resources.
 To access the HPC system in VS Code, add the _Remote Development_ extension then restart VS Code. Once VS Code is reopened, access the command pallette (``Cmd+Shift+p``) and type “connect to host” and select the ``Remote-SSH: Connect to Host…`` option. Then enter the command you would typically use to remote login without the ``ssh`` command or spaces. For example, for CQLS access, 
