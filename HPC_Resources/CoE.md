@@ -1,6 +1,6 @@
-# Accessing and using HPC resources in CoE (College of Engineering)
+# Accessing and using HPC resources in [CoE](https://it.engineering.oregonstate.edu/hpc) (College of Engineering)
 
-Access this resource via the HPC Dashboard or through standard SSH [NOT WORKING]:
+Access this resource via the [HPC Dashboard](https://ondemand.hpc.engr.oregonstate.edu/) or through standard SSH [NOT WORKING]:
 
 ```shell
 ssh [username]@submit-a.hpc.engr.oregonstate.edu
