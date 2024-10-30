@@ -1,4 +1,4 @@
-# Accessing and using HPC resources through [CQLS](https://shell.cqls.oregonstate.edu/) (Center for Quantitive and Life Sciences)
+# Accessing and using HPC resources through [CQLS](https://shell.cqls.oregonstate.edu/) (Center for Quantitive and Life Sciences) (Brodie Pearson)
 
 To login use the following terminal command with your ONID username, and follow the resulting prompts
 
