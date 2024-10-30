@@ -8,7 +8,7 @@ ssh [username]@submit-a.hpc.engr.oregonstate.edu
 
 This resource can be used similar to the more extensive CQLS documentation page. But there is some specific CoE-specific information below.
 
-## Using the preempt _partition_
+## Using the ``preempt`` _partition_
 
 A command like this will start an interactive session on a V100 which is suitable for Oceananigans simulations. The ``preempt`` partition allows users to request communal resources that are in low demand:
 
