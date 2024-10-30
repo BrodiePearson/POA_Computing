@@ -1,4 +1,4 @@
-# Accessing and using HPC resources through CQLS (Center for Quantitive and Life Sciences)
+# Accessing and using HPC resources through [CQLS](https://shell.cqls.oregonstate.edu/) (Center for Quantitive and Life Sciences)
 
 To login use the following terminal command with your ONID username, and follow the resulting prompts
 
@@ -8,7 +8,7 @@ ssh [username]@hpc.cqls.oregonstate.edu
 
 ## Viewing node details & logging into a node
 
-Now you are logged into the CQLS cluster, you can use
+Now you are logged into the [CQLS](https://shell.cqls.oregonstate.edu/) cluster, you can use
 
 ```console
 sinfo
