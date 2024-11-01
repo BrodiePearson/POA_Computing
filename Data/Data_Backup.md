@@ -1,4 +1,6 @@
-# Offsite Data Backup in 5 steps (Jesse Cusack)
+# Offsite Data Backup in 5 steps 
+
+## Contributors: Jesse Cusack
 
 ### Goal: backup laptop or moderately large storage (up to several TB)
 
