@@ -1,4 +1,6 @@
-# Accessing and using HPC resources through [CQLS](https://shell.cqls.oregonstate.edu/) (Center for Quantitive and Life Sciences) (Brodie Pearson)
+# Accessing and using HPC resources through [CQLS](https://shell.cqls.oregonstate.edu/) (Center for Quantitive and Life Sciences) 
+
+## Contributors: Brodie Pearson & Ara Lee
 
 To login use the following terminal command with your ONID username, and follow the resulting prompts
 
@@ -45,24 +47,56 @@ export LD_LIBRARY_PATH=/local/cluster/CEOAS/aarch64/opt/julia/julia-1.10.0/lib
 ```
 
 
-## Submitting a job to a specific node (DOES NOT WORK CURRENTLY)
+## Submitting a job to a specific node
 
 ```console
-qsub test_gpu_nvidia_smi.sh
+qsub run_script.sh
 ```
 
-where ``test_gpu_nvidia_smi.sh`` is a file containing (with your username) a script to submit a job in file ``test_gpu_nvidia_smi``
+where ``run_script.sh`` is a file containing (with your username) a script to query the _ewg_ node's GPU status (``nvidia-smi``) and _julia_ version, and then submit the simulation in file ``test/test_sim.jl``. The submission also keeps track of the start time, end time, and exuction time of the job. This script is likely more complex than scripts you would create, as we needed to specify internet access (``http_proxy`` and ``https_proxy`` commands and specific _julia_ paths for this node's architecture.  
 
 ```bash
-#!/bin/bash -l
-#SBATCH -J test_gpu_nvidia_smi
-#SBATCH -o test.output
-#SBATCH -e test.output
-#SBATCH -t 0:1:0
+#!/bin/bash
+#SBATCH --job-name=name
+#SBATCH --output output.out
+#SBATCH --partition=ewg
 #SBATCH --nodelist=ewg
-#SBATCH --account=[username]@oregonstate.edu
-#SBATCH --mem=4000
+
+START=$(date +%s.%N)
+echo "  Started on:           " `/bin/hostname -s` 
+echo "  Started at:           " `/bin/date` 
+echo "--------------------------------------------" 
+
+export http_proxy=http://proxy-internal.ceoas.oregonstate.edu:3128
+export https_proxy=http://proxy-internal.ceoas.oregonstate.edu:3128
+
+# Set the PATH to the specific Julia version
+# julia-1.8.5
+# export PATH=/local/cluster/julia-1.8.5/bin:$PATH
+# export LD_LIBRARY_PATH=/local/cluster/julia-1.8.5/lib:$LD_LIBRARY_PATH
+# export CPATH=/local/cluster/julia-1.8.5/include:$CPATH
+
+# # julia-1.10.1
+# export PATH=/local/cluster/bin:$PATH
+# export LD_LIBRARY_PATH=/local/cluster/lib:$LD_LIBRARY_PATH
+# export CPATH=/local/cluster/include:$CPATH
+
+# # julia-1.10.5
+export PATH="/fs1/local/cqls/software/x86_64/julia-1.10.5/envs/julia/bin:$PATH"
+export LD_LIBRARY_PATH="/fs1/local/cqls/software/x86_64/julia-1.10.5/envs/julia/lib:$LD_LIBRARY_PATH"
+
 nvidia-smi
+julia --version # checking Julia version
+julia test/test_sim.jl 
+
+echo "" 
+echo "--------------------------------------------" 
+echo "  Finished at:          " `date` 
+END=$(date +%s.%N)
+
+DIFF=$(echo "$END - $START" | bc)
+HOURS=$(echo "scale=2; $DIFF / 3600" | bc)  
+echo "  Execution time:        $HOURS hours"
 ```
 
 
