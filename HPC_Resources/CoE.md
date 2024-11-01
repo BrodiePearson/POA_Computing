@@ -1,4 +1,6 @@
-# Accessing and using HPC resources in [CoE](https://it.engineering.oregonstate.edu/hpc) (College of Engineering) (Brodie Pearson)
+# Accessing and using HPC resources in [CoE](https://it.engineering.oregonstate.edu/hpc) (College of Engineering)
+
+## Contributors: Brodie Pearson
 
 Access this resource via the [HPC Dashboard](https://ondemand.hpc.engr.oregonstate.edu/) or through standard SSH [NOT WORKING]:
 
