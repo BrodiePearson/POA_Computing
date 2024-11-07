@@ -10,5 +10,5 @@ Sample scripts and their documentation will be added in the main repository.
 ## Additional resources
 - Jesse Cusack's [`scientific-workflow`](https://github.com/jessecusack/scientific-workflow) 
 for thorough information on setting up your research workflow.
-- The Lagrangian Ocean Lab's [`GettingStarted` guide](https://github.com/LagrangianOceanLab/GettingStarted) 
-for a quick highlight on getting started with computing in CEOAS.
+- The Lagrangian Ocean Lab's [`GettingStarted`](https://github.com/LagrangianOceanLab/GettingStarted) 
+guide for quick highlights to get started with computing in CEOAS.
